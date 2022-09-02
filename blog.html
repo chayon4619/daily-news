@@ -6,15 +6,163 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
+    <!-- daisyUI and tailwind cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <header>
-        <h1>
-            My Blogs!
-        </h1>
+    <!-- navbar start -->
+    <header class="mx-12 my-4">
+        <div class="navbar bg-slate-100 mb-6 rounded-md">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                    </label>
+                    <ul tabindex="0"
+                        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="index.html">News</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-center font-semibold">
+                <a class="normal-case text-violet-500 text-xl"><span
+                        class="bg-violet-500 p-2 rounded-md text-white">My</span> Blogs</a>
+            </div>
+            <div class="navbar-end">
+                <button class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <button class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="badge badge-xs badge-primary indicator-item"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <hr>
     </header>
+    <!-- navbar end -->
 
+    <main>
+        <div class="card w-3/4 mx-auto my-6 lg:card-side bg-base-100 shadow-xl">
+            <figure><img src="blog-images/var.png" class="w-44 h-full" alt="Album"></figure>
+            <div class="card-body">
+                <h2 class="card-title">Difference between var, let and const keywords in JavaScript!</h2>
+                <p class="text-slate-500"><span class="card-title text-slate-900">var keyword in JavaScript:</span> The
+                    var is the
+                    oldest keyword to declare a
+                    variable in JavaScript. Global
+                    scoped or function scoped. The scope of the var keyword is the global or function scope. It means
+                    variables defined outside the function can be accessed globally, and variables defined inside a
+                    particular function can be accessed within the function.</p>
+                <p class="text-slate-500"><span class="card-title text-slate-900">let keyword in JavaScript:</span> The
+                    let keyword is
+                    an improved version of
+                    the var keyword. The scope of a
+                    let variable is only block scoped. It can’t be accessible outside the particular block ({block}).
+                </p>
+                <p class="text-slate-500"><span class="card-title text-slate-900">const keyword in JavaScript:</span>
+                    The const keyword has all the properties that are the same as the let
+                    keyword, except the user cannot update it.When users declare a const variable, they need to
+                    initialize it, otherwise, it
+                    returns an error. The user cannot update the const variable once it is declared.
+                </p>
+            </div>
+        </div>
+
+        <div class="card w-3/4 mx-auto my-6 lg:card-side bg-base-100 shadow-xl">
+            <figure><img src="blog-images/function.png" class="w-44 h-full" alt="Album"></figure>
+            <div class="card-body">
+                <h2 class="card-title">Differences Between Arrow Functions and Regular Functions!</h2>
+                <p class="text-slate-500"><span class="card-title text-slate-900">Arrow function — </span> also called
+                    fat arrow function— is a new feature introduced in ES6 that is a more concise syntax for writing
+                    function expressions. While both regular JavaScript functions and arrow functions work in a similar
+                    manner, there are certain differences between them.
+                    The arrow function allows a developer to accomplish the same result with fewer lines of code and
+                    approximately half the typing.
+
+                    Curly brackets aren’t required if only one expression is present.Arrow functions do not have an
+                    arguments binding. However, they have access to the arguments object of the closest non-arrow parent
+                    function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow
+                    functions.Unlike regular functions, arrow functions do not have their own this. The value of this
+                    inside an arrow function remains the same throughout the lifecycle of the function and is always
+                    bound to the value of this in the closest non-arrow parent function.</p>
+            </div>
+        </div>
+
+        <div class="card w-3/4 mx-auto my-6 lg:card-side bg-base-100 shadow-xl">
+            <figure><img src="blog-images/map.jpg" class="w-44 h-full" alt="Album"></figure>
+            <div class="card-body">
+                <h2 class="card-title">Map , ForEach , Filter ,Find keywords in JavaScript!</h2>
+                <p class="text-slate-500"><span class="card-title text-slate-900">Map:</span>map calls a provided
+                    callbackFn function once for each element in an array, in order, and constructs a new array from the
+                    results. callbackFn is invoked only for indexes of the array which have assigned values (including
+                    undefined).</p>
+                <p class="text-slate-500"><span class="card-title text-slate-900">ForEach:</span>The JavaScript forEach
+                    method is one of the several ways to loop through arrays. Each method has different features, and it
+                    is up to you, depending on what you're doing, to decide which one to use.The forEach method is also
+                    used to loop through arrays, but it uses a function differently than the classic "for loop".
+
+                    The forEach method passes a callback function for each element of an array together with the
+                    parameters.
+                </p>
+                <p class="text-slate-500"><span class="card-title text-slate-900">Filter:</span>
+                    The filter() method creates a shallow copy of a portion of a given array, filtered down to just the
+                    elements from the given array that pass the test implemented by the provided function.Function is a
+                    predicate, to test each element of the array. Return a value that coerces to true to keep the
+                    element, or to false otherwise.
+                </p>
+                <p class="text-slate-500"><span class="card-title text-slate-900">Find:</span>
+                    The arr.find() method in Javascript is used to get the value of the first element in the array that
+                    satisfies the provided condition. It checks all the elements of the array and whichever first
+                    element satisfies the condition is going to print. This function will not work function having the
+                    empty array elements, also does not change the original array.
+                </p>
+            </div>
+        </div>
+
+        <div class="card w-3/4 mx-auto my-6 lg:card-side bg-base-100 shadow-xl">
+            <figure><img src="blog-images/temp.png" class="w-44 h-full" alt="Album"></figure>
+            <div class="card-body">
+                <h2 class="card-title">Why template string is important in javascript!</h2>
+                <p class="text-slate-500"><span class="card-title text-slate-900">Template String — </span> ES6's
+                    template strings is a new way to combine strings. We already have methods such as join(), concat()
+                    etc to combine strings but the template strings method is the most sophisticated because it’s more
+                    readable, no backslash to escape quotes and no more messy plus operators.
+                    Template literals are literals delimited with backtick (`) characters, allowing for multi-line
+                    strings, for string interpolation with embedded expressions, and for special constructs called
+                    tagged templates.
+
+                    Template literals are sometimes informally called template strings, because they are used most
+                    commonly for string interpolation (to create strings by doing substitution of placeholders).
+                    However, a tagged template literal may not result in a string; it can be used with a custom tag
+                    function to perform whatever operations you want on the different parts of the template literal.</p>
+            </div>
+        </div>
+    </main>
+    <!-- footer start -->
+    <footer class="footer footer-center mt-16 mb-1 p-4 bg-base-300 text-base-content">
+        <div>
+            <p>Copyright © 2022 - All right reserved by Chayon's Industries Ltd</p>
+        </div>
+    </footer>
+    <!-- footer end -->
 </body>
 
 </html>

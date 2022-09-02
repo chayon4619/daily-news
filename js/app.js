@@ -128,13 +128,18 @@ const displayNews = news => {
 
 
 
-// modal
 
+// modal
 const showModal = async (id) => {
-    const url = `https://openapi.programming-hero.com/api/news/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayModal(data.data[0])
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayModal(data.data[0])
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 const displayModal = deaitl => {
     console.log(deaitl);
@@ -163,4 +168,4 @@ const displayModal = deaitl => {
 // }
 
 
-// loadNews('01')
+loadNews('08')
