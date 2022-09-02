@@ -45,10 +45,10 @@ const displayNews = news => {
          <div class="card-actions justify-between">
             <div class="flex gap-2"> 
                <img class="w-7 h-7 rounded-full" src="${singleNews.author.img}">
-               <p class="font-semibold">${singleNews.author.name}</p>
+               <p class="font-semibold">${singleNews.author ? singleNews.author.name : "No Author"}</p>
             </div>
             <div>
-                 <p class="font-bold">Rating : <span class="text-rose-500">${singleNews.rating.number}</span></p>
+                 <p class="font-bold">Rating : <span class="text-rose-500">${singleNews.rating ? singleNews.rating.number : "No Rating"}</span></p>
             </div>
             <button class="btn btn-primary">Show Deatil</button>
             </div>
