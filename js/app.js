@@ -11,7 +11,6 @@ const loadCategories = () => {
 const displayCategories = categories => {
     const categoriesList = document.getElementById('categories');
     categories.forEach(category => {
-        // console.log(category)
         const li = document.createElement('li');
         li.innerHTML = `<a onclick="loadNews('${category.category_id}')">${category.category_name}</a>`;
         categoriesList.appendChild(li);
@@ -19,7 +18,6 @@ const displayCategories = categories => {
 }
 
 loadCategories()
-
 
 // news section
 const loadNews = (categoryId) => {
@@ -31,9 +29,7 @@ const loadNews = (categoryId) => {
 
 }
 
-
 const displayNews = news => {
-    // console.log(news)
 
     // loader start
     const loderSection = document.getElementById('loader');
@@ -47,12 +43,9 @@ const displayNews = news => {
         return b.total_view - a.total_view
     })
 
-
-
     const foundText = document.getElementById('found-text');
     foundText.innerHTML = `<h1 class="text-center font-bold text-2xl py-4 bg-slate-200"><span class="text-rose-500">${news.length}</span> items found for this category</h1>`
     news.forEach(singleNews => {
-        // console.log(singleNews._id)
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
         <div class="card lg:card-side bg-base-100 w-3/4 my-4 mx-auto shadow-xl">
@@ -75,59 +68,10 @@ const displayNews = news => {
     </div>`;
         cardContainer.appendChild(cardDiv);
 
-
         // loader end
         loderSection.classList.add('hidden');
     });
-
-
-    // modal
-    // const showModal = id => {
-    //     const url = `https://openapi.programming-hero.com/api/news/${id}`
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }
-    // showModal()
-
-
-    // const showModal = async (id) => {
-    //     const url = `https://openapi.programming-hero.com/api/news/${id}`;
-    //     const res = await fetch(url);
-    //     const data = await res.json();
-    //     displayModal(data)
-    // }
-    // const displayModal = deaitlId => {
-    //     console.log(deaitlId)
-    // }
-
-
-
-
-    //     cardContainer.innerHTML = `
-    //         <div class="card lg:card-side bg-base-100 w-3/4 my-4 mx-auto shadow-xl">
-    //             <figure><img src="${news.thumbnail_url}" alt="Album"></figure>
-    //             <div class="card-body">
-    //                 <h2 class="card-title">${news.title}</h2>
-    //                 <p class="text-slate-500">${news.details.length < 300 ? news.details : news.details.slice(0, 300) + "..."}</p>
-    //              <div class="card-actions justify-between">
-    //                 <div class="flex gap-2"> 
-    //                    <img class="w-7 h-7 rounded-full" src="${news.author.img}">
-    //                    <p class="font-semibold">${news.author.name}</p>
-    //                 </div>
-    //                 <div>
-    //                      <p class="font-bold">Rating : <span class="text-rose-500">${news.rating.number}</span></p>
-    //                 </div>
-    //                 <button class="btn btn-primary">Show Deatil</button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    // `;
-
 }
-
-
-
 
 // modal
 const showModal = async (id) => {
@@ -135,10 +79,10 @@ const showModal = async (id) => {
         const url = `https://openapi.programming-hero.com/api/news/${id}`;
         const res = await fetch(url);
         const data = await res.json();
-        displayModal(data.data[0])
+        displayModal(data.data[0]);
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 const displayModal = deaitl => {
@@ -148,24 +92,12 @@ const displayModal = deaitl => {
     <img src="${deaitl.image_url}" alt="">
     <h3 class="text-lg font-bold">${deaitl.title}</h3>
     <p class="py-4">${deaitl.details}</p>
+    <p class="font-bold">Author : <span class="text-rose-500">${deaitl.author.name ? deaitl.author.name : "No Author"}</span></p>
     <p class="font-bold">Rating : <span class="text-rose-500">${deaitl.rating.number}</span></p>
+    <p class="font-bold">Published Date : <span class="text-rose-500">${deaitl.author.published_date ? deaitl.author.published_date : "No Date"}</span></p>
+    <p class="font-bold">Watched : <span class="text-rose-500">${deaitl.total_view ? deaitl.total_view + 'k' : "No View"}</span></p>
     `;
-}
+};
 
 
-
-
-
-// loader function
-// const isLoading = () => {
-//     const loderSection = document.getElementById('loader');
-//     if (isLoading(true)) {
-//         loderSection.classList.remove('hidden');
-//     }
-//     else {
-//         loderSection.classList.add('hidden');
-//     }
-// }
-
-
-loadNews('08')
+loadNews('08');
