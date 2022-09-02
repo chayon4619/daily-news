@@ -11,7 +11,7 @@ const loadCategories = () => {
 const displayCategories = categories => {
     const categoriesList = document.getElementById('categories');
     categories.forEach(category => {
-        console.log(category)
+        // console.log(category)
         const li = document.createElement('li');
         li.innerHTML = `<a onclick="loadNews('${category.category_id}')">${category.category_name}</a>`;
         categoriesList.appendChild(li);
@@ -31,10 +31,21 @@ const loadNews = (categoryId) => {
 }
 
 const displayNews = news => {
-    console.log(news)
+    // console.log(news)
+
     const cardContainer = document.getElementById('card-conatiner');
     cardContainer.textContent = '';
+
+    // short by rating
+    news.sort((a, b) => {
+        return b.rating.number - a.rating.number
+    })
+
+    const foundText = document.getElementById('found-text');
+    foundText.innerHTML = `<h1 class="text-center">${news.length}items found for this category</h1>`
     news.forEach(singleNews => {
+
+
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
         <div class="card lg:card-side bg-base-100 w-3/4 my-4 mx-auto shadow-xl">
