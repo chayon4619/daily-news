@@ -27,6 +27,7 @@ const loadNews = (categoryId) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
+        .catch(error => console.log(error));
 
 }
 
@@ -42,7 +43,7 @@ const displayNews = news => {
     })
 
     const foundText = document.getElementById('found-text');
-    foundText.innerHTML = `<h1 class="text-center">${news.length}items found for this category</h1>`
+    foundText.innerHTML = `<h1 class="text-center font-bold text-2xl py-4 bg-slate-200"><span class="text-rose-500">${news.length}</span> items found for this category</h1>`
     news.forEach(singleNews => {
 
 
@@ -65,7 +66,7 @@ const displayNews = news => {
             </div>
         </div>
     </div>`;
-        cardContainer.appendChild(cardDiv)
+        cardContainer.appendChild(cardDiv);
     })
     //     cardContainer.innerHTML = `
     //         <div class="card lg:card-side bg-base-100 w-3/4 my-4 mx-auto shadow-xl">
@@ -88,5 +89,17 @@ const displayNews = news => {
     // `;
 
 }
+
+// loader function
+// const isLoading = () => {
+//     const loderSection = document.getElementById('loader');
+//     if (isLoading(true)) {
+//         loderSection.classList.remove('hidden');
+//     }
+//     else {
+//         loderSection.classList.add('hidden');
+//     }
+// }
+
 
 // loadNews('01')
