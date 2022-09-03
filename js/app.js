@@ -87,7 +87,6 @@ const showModal = async (id) => {
     }
 }
 const displayModal = deaitl => {
-    console.log(deaitl);
     const modalDiv = document.getElementById('modal-div');
     modalDiv.innerHTML = `
     <img src="${deaitl.image_url}" alt="">
