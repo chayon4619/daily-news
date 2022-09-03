@@ -14,6 +14,7 @@ const displayCategories = categories => {
         const li = document.createElement('li');
         li.innerHTML = `<a onclick="loadNews('${category.category_id}')">${category.category_name}</a>`;
         categoriesList.appendChild(li);
+
     })
 }
 
@@ -21,6 +22,10 @@ loadCategories()
 
 // news section
 const loadNews = (categoryId) => {
+    // loader start
+    const loderSection = document.getElementById('loader');
+    loderSection.classList.remove('hidden')
+
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     fetch(url)
         .then(res => res.json())
@@ -30,11 +35,6 @@ const loadNews = (categoryId) => {
 }
 
 const displayNews = news => {
-
-    // loader start
-    const loderSection = document.getElementById('loader');
-    loderSection.classList.remove('hidden')
-
     const cardContainer = document.getElementById('card-conatiner');
     cardContainer.textContent = '';
 
@@ -44,7 +44,7 @@ const displayNews = news => {
     })
 
     const foundText = document.getElementById('found-text');
-    foundText.innerHTML = `<h1 class="text-center font-bold text-2xl py-4 bg-slate-200"><span class="text-rose-500">${news.length}</span> items found for this category</h1>`
+    foundText.innerHTML = `<h1 class="text-center font-bold text-2xl py-2 bg-slate-200"><span class="text-rose-500">${news.length}</span> items found for this category</h1>`
     news.forEach(singleNews => {
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
@@ -69,6 +69,7 @@ const displayNews = news => {
         cardContainer.appendChild(cardDiv);
 
         // loader end
+        const loderSection = document.getElementById('loader');
         loderSection.classList.add('hidden');
     });
 }

@@ -26,8 +26,8 @@
                     </label>
                     <ul tabindex="0"
                         class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a href="index.html">News</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a class="active" href="index.html">News</a></li>
+                        <li><a target="_blank" href="blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,6 +67,26 @@
             </ul>
         </section>
         <!-- catagories end -->
+
+        <!-- extra start -->
+        <section class="flex justify-between w-3/4 mx-auto py-2">
+            <div class="flex">
+                <!-- <h1 class="font-semibold">Sort By:</h1> -->
+                <select class="select select-bordered w-full select-sm max-w-xs">
+                    <option disabled selected>All news</option>
+                    <option>Entertainment</option>
+                    <option>Sports</option>
+                    <option>Breaking news</option>
+                    <option>Arts</option>
+                </select>
+
+            </div>
+            <div>
+                <button class="btn btn-outline btn-info btn-sm">Today’s Pick</button>
+                <button class="btn btn-outline btn-primary btn-sm">Trending</button>
+            </div>
+        </section>
+        <!-- extra end -->
 
         <!-- spinner start -->
         <div id="loader" class="hidden">
